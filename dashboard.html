@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BANK &trade;</title>
+
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/Chart.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-dark animate__animated animate__fadeIn">
+        <div class="container">
+            <a class="navbar-brand animate__animated animate__fadeInDown" href="#">
+                <img src="img/logo.png" width="35" /> <span class="name-logo">BANK &trade;</span>
+            </a>
+
+            <div class="dropdown animate__animated animate__fadeInDown">
+                <div class="dropdown-toggle section-user" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+
+                    <div class="row mr-0 text-right">
+
+                        <div class="col-9 pr-0 container-user-name">
+                            <p class="user-name">Weverton de Lima Cardoso</p>
+                            <div class="dados-conta">
+                                <span class="span-bank c-gray">Agência: 1234</span>
+                                <span class="span-bank c-gray ml-2">Conta: 12.345-6</span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="user-img">
+                                <i class="fa fa-user-o"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o"></i>&nbsp; Meus Dados</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>&nbsp; Sair</a>
+                </div> -->
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="container">
+
+        <div class="row">
+
+            <!-- MENU -->
+            <div class="col-3" style="margin-top: -45px;">
+
+                <div class="card pt-1 pb-1 animate__animated animate__fadeInUp">
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-home"></i> &nbsp;
+                        <span class="text-menu">Início</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item active">
+                        <i class="icon-menu fa fa-file-text-o"></i> &nbsp;
+                        <span class="text-menu">Resumo Conta</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-bar-chart"></i> &nbsp;
+                        <span class="text-menu">Investimentos</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-shield"></i> &nbsp;
+                        <span class="text-menu">Seguros</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-money"></i> &nbsp;
+                        <span class="text-menu">Crédito</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-refresh"></i> &nbsp;
+                        <span class="text-menu">Transferência</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-car"></i> &nbsp;
+                        <span class="text-menu">Consórcios</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i class="icon-menu fa fa-credit-card"></i> &nbsp;
+                        <span class="text-menu">Cartões</span>
+                        <i class="icon-menu-more fa fa-chevron-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-9" style="margin-top: -45px;">
+
+                <div class="row">
+
+                    <div class="col-8">
+
+                        <div class="container-log animate__animated animate__fadeInUp">
+                            <span>Seu último acesso foi em 10/09/2020 às 10:24:21</span>
+                        </div>
+
+                        <!-- EXTRATO -->
+                        <div class="card mb-3 animate__animated animate__fadeInUp">
+
+                            <div class="float-right legenda-extrato">
+                                <div class="row">
+                                    <div class="col-6 text-center pl-0 pr-0 item-legenda red">
+                                        <span class="text-danger">
+                                            <i class="fa fa-arrow-down icon-text-extrato"></i>&nbsp; R$ 1.203,97
+                                        </span>
+                                    </div>
+                                    <div class="col-6 text-center pl-0 pr-0 item-legenda">
+                                        <span class="text-success">
+                                            <i class="fa fa-arrow-up icon-text-extrato"></i>&nbsp; R$ 2.687,85
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="titulo">
+                                <i class="fa fa-file-text-o"></i>&nbsp;
+                                <b style="color: #333;">Extrato Mensal</b>
+                            </p>
+
+                            <canvas id="chartReceita" height="182"></canvas>
+
+                        </div>
+
+                        <div class="row">
+
+                            <!-- DESPESAS -->
+                            <div class="col-6 animate__animated animate__fadeInUp">
+
+                                <div class="card">
+
+                                    <div style="position: absolute; right: 25px; top: 20px;">
+                                        <div class="text-center pl-2 pr-2 item-legenda">
+                                            <span class="text-muted">
+                                                <i class="fa fa-calendar icon-text-extrato"></i>&nbsp; 09/2020
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p class="titulo mb-3">
+                                        <i class="fa fa-arrow-down"></i>&nbsp;
+                                        <b style="color: #333;">Despesas</b>
+                                    </p>
+
+                                    <div class="progress mg-b-10">
+                                        <div class="progress-bar progress-bar-lg wd-30p bg-success" role="progressbar"
+                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">30%</div>
+                                        <div class="progress-bar progress-bar-lg wd-40p bg-primary" role="progressbar"
+                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">40%</div>
+                                        <div class="progress-bar progress-bar-lg wd-15p bg-dark-bold" role="progressbar"
+                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">15%</div>
+                                        <div class="progress-bar progress-bar-lg wd-15p bg-dark-light"
+                                            role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                            15%</div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col">
+                                            <div class="mb-1 d-flex">
+                                                <div class="ht-10 wd-10 bg-success mt-1 mr-2 brround"></div>
+                                                <span class="fs-13"
+                                                    style="position: relative;top: -2px;font-weight: 500;">Alimentação</span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-auto">
+                                            <h6 class="mb-0 fs-13"><b>R$ 645,30</b></h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-1">
+                                        <div class="col">
+                                            <div class="mb-1 d-flex">
+                                                <div class="ht-10 wd-10 bg-primary mt-1 mr-2 brround"></div>
+                                                <span class="fs-13"
+                                                    style="position: relative;top: -2px;font-weight: 500;">Lazer</span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-auto">
+                                            <h6 class="mb-0 fs-13"><b>R$ 879,25</b></h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-1">
+                                        <div class="col">
+                                            <div class="mb-1 d-flex">
+                                                <div class="ht-10 wd-10 bg-dark-bold mt-1 mr-2 brround"></div>
+                                                <span class="fs-13"
+                                                    style="position: relative;top: -2px;font-weight: 500;">Educação</span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-auto">
+                                            <h6 class="mb-0 fs-13"><b>R$ 155,30</b></h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-1">
+                                        <div class="col">
+                                            <div class="mb-1 d-flex">
+                                                <div class="ht-10 wd-10 bg-dark-light mt-1 mr-2 brround"></div>
+                                                <span class="fs-13"
+                                                    style="position: relative;top: -2px;font-weight: 500;">Impostos</span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-auto">
+                                            <h6 class="mb-0 fs-13"><b>R$ 135,00</b></h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- FATURA -->
+                            <div class="col-6 animate__animated animate__fadeInUp">
+
+                                <div class="card">
+
+                                    <div style="position: absolute; right: 25px; top: 20px;">
+                                        <div class="text-center pl-2 pr-2 item-legenda">
+                                            <span class="text-muted">
+                                                <i class="fa fa-calendar icon-text-extrato"></i>&nbsp; 09/2020
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p class="titulo mb-3">
+                                        <i class="fa fa-clone"></i>&nbsp;
+                                        <b style="color: #333;">Fatura</b>
+                                    </p>
+
+                                    <div class="row mt-1">
+                                        <div class="col-6 pr-2 pl-2">
+                                            <span class="label-limite text-muted">Disponível à Vista</span>
+                                            <span class="valor-limite">R$ 1.096,50</span>
+                                        </div>
+                                        <div class="col-6 pl-0">
+                                            <span class="label-limite text-muted">Disponível Parcelado</span>
+                                            <span class="valor-limite">R$ 784,10</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="valor-fatura">R$ 1.240,95</p>
+                                    <span class="label-valor-fatura text-muted">Fatura fechada - Vencimento 05/09</span>
+
+                                    <a href="#!" class="btn btn-rounded btn-success">
+                                        <i class="fa fa-dollar"></i>&nbsp; Pagar Fatura
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <!-- SALDO -->
+                        <div class="card card-black mb-3 animate__animated animate__bounceInRight">
+                            <div class="saldo">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6 class="text-muted mb-0 fs-13 c-gray">Saldo em conta:</h6>
+                                        <span class="font-weight-bold mb-0 c-light fs-17">R$ 10.254,90</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="card-circle">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-success mr-1"><i class="fa fa-arrow-up icon-text"></i> 7.8%</span>
+                                    <span class="text-nowrap fs-13 c-gray">de crescimento no mês</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- LIMITES -->
+                        <div class="row menu-list animate__animated animate__fadeInUp">
+
+                            <div class="col-12 pl-1 pr-1">
+                                <div class="card card-p-13 mb-2">
+
+                                    <a href="#" class="menu-item menu-item-card">
+                                        <i class="icon-menu icon-menu-card fa fa-dollar"></i>&nbsp;
+                                        <span class="text-menu text-menu-sm">Crédito Pessoal Automático</span><br />
+                                        <span class="text-menu text-menu-xs">R$ 11.550,00</span>
+                                        <i class="icon-menu-more icon-menu-more-card fa fa-chevron-right"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="col-12 pl-1 pr-1">
+                                <div class="card card-p-13 mb-3">
+
+                                    <a href="#" class="menu-item menu-item-card">
+                                        <i class="icon-menu icon-menu-card fa fa-car"></i>&nbsp;
+                                        <span class="text-menu text-menu-sm">Crédito Digital Veículo</span><br />
+                                        <span class="text-menu text-menu-xs">R$ 36.520,00</span>
+                                        <i class="icon-menu-more icon-menu-more-card fa fa-chevron-right"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARTAO -->
+                        <div class="credit_card mb-3 animate__animated animate__fadeInUp">
+                            <div class="card__front card__part">
+                                <img class="card__front-square card__square" src="img/little_square.png">
+                                <img class="card__front-logo card__logo" src="img/logo-mastercard.png">
+                                <p class="card_numer">**** **** **** 4321</p>
+                                <div class="card__space-75">
+                                    <span class="card__label">Card holder</span>
+                                    <p class="card__info">WEVERTON LIMA</p>
+                                </div>
+                                <div class="card__space-25">
+                                    <span class="card__label">Expires</span>
+                                    <p class="card__info">10/25</p>
+                                </div>
+                            </div>
+
+                            <div class="card__back card__part">
+                                <div class="card__black-line"></div>
+                                <div class="card__back-content">
+                                    <div class="card__secret">
+                                        <p class="card__secret--last">123</p>
+                                    </div>
+                                    <img class="card__back-logo card__logo" src="img/logo-mastercard.png">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- DÚVIDAS -->
+                        <div class="card pt-3 pb-3 animate__animated animate__fadeInUp" style="cursor: pointer;">
+                            <div class="row">
+                                <div class="col-8">
+                                    <span class="label-ajuda">Posso Ajudar?</span>
+                                    <span class="label-ajuda-sub">
+                                        <b class="online"></b>&nbsp; Central de Ajuda
+                                    </span>
+                                </div>
+                                <div class="col-4">
+                                    <div class="container-faq">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="mt-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-4 text-left">
+                    <p class="label-contato">Entre em contato</p>
+                    <p class="fs-13 text-muted mb-0">
+                        <i class="fa fa-phone"></i>&nbsp; Central de Atendimento: 0800 000 1234
+                    </p>
+                    <p class="fs-13 text-muted mb-0">
+                        <i class="fa fa-clock-o"></i>&nbsp; Horário de Atendimento: 08:00h às 19:00h
+                    </p>
+                </div>
+
+                <div class="col-4 text-center pt-4 fs-13 text-muted">
+                    &copy; Todos os direitos reservados
+                </div>
+
+                <div class="col-4 text-right pt-2">
+                    <div class="container-social">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="container-social">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                    <div class="container-social">
+                        <i class="fa fa-instagram"></i>
+                    </div>
+                    <div class="container-social">
+                        <i class="fa fa-linkedin"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/Chart.min.js"></script>
+    <script type="text/javascript" src="js/Chart.utils.js"></script>
+
+    <script type="text/javascript">
+
+
+        var config = {
+            curvature: 1,
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set'],
+                datasets: [{
+                    label: 'Receita',
+                    borderWidth: 2,
+                    backgroundColor: '#1abc9c',
+                    borderWidth: 0,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                }, {
+                    label: 'Despesa',
+                    borderWidth: 2,
+                    backgroundColor: '#efefef',
+                    borderWidth: 0,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                    callback: function (value, index, values) {
+                        return 'R$ ' + value;
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: false,
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0)",
+                            display: false,
+                            drawBorder: false,
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0.1)",
+                            drawBorder: false,
+                            display: false,
+                        },
+                        ticks: {
+                            display: false
+                            // beginAtZero: true,
+                            // stepSize: 500,
+                            // fontColor: "#9aa0ac", // Font Color
+                            // callback: function (value, index, values) {
+                            //     return 'R$ ' + value;
+                            // }
+                        },
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+
+            }
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById('chartReceita').getContext('2d');
+            window.myLine = new Chart(ctx, config);
+        };
+
+    </script>
+
+</body>
+
+</html>
